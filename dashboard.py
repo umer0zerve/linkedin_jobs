@@ -88,7 +88,7 @@ top_10_skills_text = ' '.join(df_subset[df_subset['job_title'].isin(top_10_jobs[
 fig5, ax = plt.subplots(figsize=(8, 4))
 wordcloud = WordCloud(width=600, height=300, background_color='white').generate(top_10_skills_text)
 ax.imshow(wordcloud, interpolation='bilinear')
-ax.set_title('Top 10 In-Demand Job Skills 🌟')
+ax.set_title('Top 10 In-Demand Job Skills')
 ax.axis('off')
 
 
