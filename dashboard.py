@@ -3,11 +3,20 @@ import plotly.express as px
 from wordcloud import WordCloud
 import pandas as pd
 import matplotlib.pyplot as plt
+import requests
+from io import StringIO
+import gdown
 
 st.set_page_config(layout="wide")
 
+google_drive_link = 'https://drive.google.com/file/d/1tW9VpAt0R3HdMKE7yiXSKanRjPSJpqkl/view?usp=sharing'
+file_id = google_drive_link.split('/')[-2]
+download_link = f'https://drive.google.com/uc?id={file_id}'
+output_file = 'linkedin_jobs.csv'
+gdown.download(download_link, output_file, quiet=False)
 
-df = pd.read_csv('linkedin_jobs.csv')
+df = pd.read_csv(output_file)
+
 
 
 linkedin_logo_path = 'linkedin_logo.png'
