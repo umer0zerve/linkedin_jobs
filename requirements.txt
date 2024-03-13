@@ -1,0 +1,7 @@
+html5lib
+plotly
+geopandas
+pandas
+gdown
+wordcloud
+streamlit
