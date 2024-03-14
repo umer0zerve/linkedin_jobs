@@ -9,7 +9,7 @@ import gdown
 import os
 import warnings
 
-warnings.simplefilter(action='ignore', category=FutureWarning)
+warnings.filterwarnings("ignore")
 
 st.set_page_config(layout="wide")
 
