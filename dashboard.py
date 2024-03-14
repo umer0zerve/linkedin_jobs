@@ -7,6 +7,9 @@ import requests
 from io import StringIO
 import gdown
 import os
+import warnings
+
+warnings.simplefilter(action='ignore', category=FutureWarning)
 
 st.set_page_config(layout="wide")
 
