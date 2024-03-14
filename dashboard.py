@@ -9,14 +9,15 @@ import gdown
 
 st.set_page_config(layout="wide")
 
-google_drive_link = 'https://drive.google.com/file/d/1tW9VpAt0R3HdMKE7yiXSKanRjPSJpqkl/view?usp=sharing'
-file_id = google_drive_link.split('/')[-2]
-download_link = f'https://drive.google.com/uc?id={file_id}'
-output_file = 'linkedin_jobs.csv'
-gdown.download(download_link, output_file, quiet=False)
+#google_drive_link = 'https://drive.google.com/file/d/1tW9VpAt0R3HdMKE7yiXSKanRjPSJpqkl/view?usp=sharing'
+#file_id = google_drive_link.split('/')[-2]
+#download_link = f'https://drive.google.com/uc?id={file_id}'
+#output_file = 'linkedin_jobs.csv'
+#gdown.download(download_link, output_file, quiet=False)
 
-df = pd.read_csv(output_file)
-
+#df = pd.read_csv(output_file)
+dfs = [pd.read_csv(os.path.join('./files', filename)) for filename in sorted(os.listdir('./files')) if filename.endswith(".csv")]
+df = pd.concat(dfs, ignore_index=True)
 
 
 linkedin_logo_path = 'linkedin_logo.png'
