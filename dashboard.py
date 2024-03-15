@@ -11,10 +11,9 @@ import warnings
 warnings.filterwarnings("ignore")
 st.set_page_config(layout="wide")
 
-output_folder = r'C:\Users\umerk\Downloads\linkedin\files'
-os.makedirs(output_folder, exist_ok=True)
+dfs = [pd.read_csv(os.path.join('./files', filename)) for filename in sorted(os.listdir('./files')) if filename.endswith(".csv")]
+df = pd.concat(dfs, ignore_index=True)
 
-df = pd.read_csv('linkedin_jobs.csv')
 
 # Calculate the number of chunks needed
 chunk_size = 20 * 1024 * 1024  # Convert MB to bytes
