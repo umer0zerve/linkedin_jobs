@@ -15,19 +15,6 @@ dfs = [pd.read_csv(os.path.join('./files', filename)) for filename in sorted(os.
 df = pd.concat(dfs, ignore_index=True)
 
 
-# Calculate the number of chunks needed
-chunk_size = 20 * 1024 * 1024  # Convert MB to bytes
-total_size = os.path.getsize('linkedin_jobs.csv')
-num_chunks = -(-total_size // chunk_size)  # Ceiling division to get the number of chunks
-
-# Split the DataFrame into chunks and save each chunk as a CSV file
-for i, chunk in enumerate(np.array_split(df, num_chunks)):
-    chunk.to_csv(os.path.join(output_folder, f"chunk_{i+1}.csv"), index=False)
-
-dfs = [pd.read_csv(os.path.join('./files', filename)) for filename in sorted(os.listdir('./files')) if filename.endswith(".csv")]
-df = pd.concat(dfs, ignore_index=True)
-
-
 linkedin_logo_path = 'linkedin_logo.png'
 st.image(linkedin_logo_path, width=150, caption="🔗 LinkedIn Logo")
 
